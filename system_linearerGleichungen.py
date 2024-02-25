@@ -12,13 +12,17 @@ def MengeG (message, bot):
         bot.send_message(message.from_user.id, "Entschuldigung! Es ist nich system!");
     elif(Menge == 2):
         bot.send_message(message.from_user.id, "Bitte geben Sie a_1_1 ... a_n_n");
-        bot.send_message(message.from_user.id, "wissen das: 1) a_1_1*x + a_1_2*y = a_1_3");
-        bot.send_message(message.from_user.id, "            2) a_2_1*x + a_2_2*y = a_2_3");
-        bot.send_message(message.from_user.id, "Bitte füllen mit Raum");
-        bot.send_message(message.from_user.id, "Zum Beispiel: a_1_1 = 4 a_1_2 = 5 a_1_3 = 1 a_2_1 = 8 a_2_2 = -2 a_2_3 = 38");
-        bot.send_message(message.from_user.id, "Wird aussehen wie 1) 4*x + 5*y = 1");
-        bot.send_message(message.from_user.id, "                  2) 8*x - 2*y = 38");
-        bot.send_message(message.from_user.id, "Antwort: x = 4.0 und y = -3.0");
+        bot.send_message(message.from_user.id, "wissen das: ")
+        bot.send_message(message.from_user.id, "1) a_1_1*x + a_1_2*y = a_1_3");
+        bot.send_message(message.from_user.id, "2) a_2_1*x + a_2_2*y = a_2_3");
+        bot.send_message(message.from_user.id, "Bitte füllen mit Raum und wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
+        bot.send_message(message.from_user.id, "Zum Beispiel:")
+        bot.send_message(message.from_user.id, "a_1_1 = 4.4 a_1_2 = 5 a_1_3 = 1.5 a_2_1 = 8 a_2_2 = -2 a_2_3 = 38.75");
+        bot.send_message(message.from_user.id, "Wird aussehen wie")
+        bot.send_message(message.from_user.id, "1) 4*x + 5*y = 1");
+        bot.send_message(message.from_user.id, "2) 8*x - 2*y = 38");
+        bot.send_message(message.from_user.id, "Antwort:")
+        bot.send_message(message.from_user.id, "x = 4.031762295081967 und y = -3.2479508196721314");
 
     else:
         bot.send_message(message.from_user.id, "Bitte geben Sie a_1_1, ... a_n_n");
@@ -44,9 +48,9 @@ def SuchenInt(message, bot, Menge):
         LoesenSys_nd(message, bot, variablen)
 
 def LoesenSys_2d(message, bot, variablen):
-    Delta = int(variablen['a_1_1'])*int(variablen['a_2_2']) - int(variablen['a_2_1'])*int(variablen['a_1_2']);
-    DeltaX = int(variablen['a_1_3'])*int(variablen['a_2_2']) - int(variablen['a_2_3'])*int(variablen['a_1_2']);
-    DeltaY = int(variablen['a_1_1'])*int(variablen['a_2_3']) - int(variablen['a_2_1'])*int(variablen['a_1_3']);
+    Delta = float(variablen['a_1_1'])*float(variablen['a_2_2']) - float(variablen['a_2_1'])*float(variablen['a_1_2']);
+    DeltaX = float(variablen['a_1_3'])*float(variablen['a_2_2']) - float(variablen['a_2_3'])*float(variablen['a_1_2']);
+    DeltaY = float(variablen['a_1_1'])*float(variablen['a_2_3']) - float(variablen['a_2_1'])*float(variablen['a_1_3']);
 
     x = DeltaX / Delta;
     y = DeltaY / Delta;
