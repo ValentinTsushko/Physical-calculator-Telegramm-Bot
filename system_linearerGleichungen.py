@@ -4,19 +4,19 @@ import re;
 import numpy as np;
 
 def Start(message, bot):
-    bot.send_message(message.from_user.id, "Bitte geben Sie wie viel Gleichungen Sie haben");
+    bot.send_message(message.from_user.id, "Bitte geben Sie ein, wie viele Gleichungen Sie haben");
     bot.register_next_step_handler(message, MengeG, bot);
 
 def MengeG (message, bot):
     Menge = int(message.text)
     if(Menge == 0 or Menge == 1):
-        bot.send_message(message.from_user.id, "Entschuldigung! Es ist nich system!");
+        bot.send_message(message.from_user.id, "Entschuldigung! Es ist kein System!");
     elif(Menge == 2):
-        bot.send_message(message.from_user.id, "Bitte geben Sie a_1_1 ... a_n_n");
-        bot.send_message(message.from_user.id, "wissen das: ");
+        bot.send_message(message.from_user.id, "Bitte geben Sie a_1_1 ... a_n_n ein");
+        bot.send_message(message.from_user.id, "Wenn wir wissen, dass: ");
         bot.send_message(message.from_user.id, "1) a_1_1*x + a_1_2*y = a_1_3");
         bot.send_message(message.from_user.id, "2) a_2_1*x + a_2_2*y = a_2_3");
-        bot.send_message(message.from_user.id, "Bitte füllen mit Raum und wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
+        bot.send_message(message.from_user.id, "Bitte schreiben Sie, wie im Beispiel, wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
         bot.send_message(message.from_user.id, "Zum Beispiel:");
         bot.send_message(message.from_user.id, "a_1_1 = 4.4 a_1_2 = 5 a_1_3 = 1.5 \n a_2_1 = 8 a_2_2 = -2 a_2_3 = 38.75");
         bot.send_message(message.from_user.id, "Wird aussehen wie");
@@ -26,13 +26,13 @@ def MengeG (message, bot):
         bot.send_message(message.from_user.id, "x = 4.031762295081967 und y = -3.2479508196721314");
 
     else:
-        bot.send_message(message.from_user.id, "Bitte geben Sie a_1_1, ... a_n_n");
-        bot.send_message(message.from_user.id, "wissen das:");
+        bot.send_message(message.from_user.id, "Bitte geben Sie a_1_1, ... a_n_n ein");
+        bot.send_message(message.from_user.id, "Wenn wir wissen, dass:");
         bot.send_message(message.from_user.id, "1) a_1_1*x_1 + a_1_2*x_2 + ... + a_1_n*x_n = B_1");
         bot.send_message(message.from_user.id, "2) a_2_1*x_1 + a_2_2*x_2 + ... + a_2_n*x_n = B_2");
         bot.send_message(message.from_user.id, "................................................");
         bot.send_message(message.from_user.id, "n) a_n_1*x_1 + a_n_2*x_2 + ... + a_n_n*x_n = B_n");
-        bot.send_message(message.from_user.id, "Bitte füllen mit Raum und wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
+        bot.send_message(message.from_user.id, "Bitte schreiben Sie, wie im Beispiel, wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
         bot.send_message(message.from_user.id, "Zum Beispiel:");
         bot.send_message(message.from_user.id, "a_1_1 = 4.4 a_1_2 = 5 a_1_3 = 1.5 a_1_4 = 3\n a_2_1 = 8 a_2_2 = -2 a_2_3 = 7.75 a_2_4 = 38.75 \n a_3_1 = 6 a_3_2 = 1 a_3_3 = 1.5 a_3_4 = 6");
         bot.send_message(message.from_user.id, "Wird aussehen wie");
