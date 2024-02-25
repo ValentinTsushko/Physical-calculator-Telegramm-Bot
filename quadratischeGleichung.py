@@ -26,9 +26,9 @@ def GebenC(message, bot, a, b):
     c = int(message.text);
 
     bot.send_message(message.from_user.id, f"Ihre Gleichung ist {a}x² + {b}x + {c} = 0?");
-    bot.register_next_step_handler(message, Leosung, bot, a, b, c);
+    bot.register_next_step_handler(message, Loesung, bot, a, b, c);
 
-def Leosung(message, bot, a, b, c):
+def Loesung(message, bot, a, b, c):
     if(message.text == 'ja' or message.text == 'Ja'or message.text == 'jö' or message.text == 'Jö' or message.text == '1'):
         D = b**2 - 4*a*c;
         if (D > 0):
