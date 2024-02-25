@@ -4,8 +4,8 @@ import re;
 
 
 def Start(message, bot):
-    bot.send_message(message.from_user.id, "Bitte geben Sie a b c ein, wissen das ax² + bx + c = 0");
-    bot.send_message(message.from_user.id, "Bitte füllen mit Raum und wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
+    bot.send_message(message.from_user.id, "Bitte geben Sie a b c ein, wenn wir wissen, dass ax² + bx + c = 0");
+    bot.send_message(message.from_user.id, "Bitte schreiben Sie, wie im Beispiel, wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
     bot.send_message(message.from_user.id, "Zum Beispiel:");
     bot.send_message(message.from_user.id, "a = 1 b = 5.75 c = 4");
     bot.send_message(message.from_user.id, "Antwort:");
@@ -35,9 +35,9 @@ def Loesung(message, bot, a, b, c):
 
         elif(D == 0):
             x = -b/(2*a);
-            bot.send_message(message.from_user.id, f"D = {D}, dann nür eine Wurzel x = {x} ist");
+            bot.send_message(message.from_user.id, f"D = {D}, dann nur eine Wurzel x = {x} ist");
         else:
-            bot.send_message(message.from_user.id, f"D = {D}, dann keine Wurzel ist");
+            bot.send_message(message.from_user.id, f"D = {D}, dann keine Wurzel sind");
 
     else:
         Start(message, bot)

@@ -1,8 +1,14 @@
 import telebot;
+import os
 import quadratischeGleichung;
 import system_linearerGleichungen;
+from dotenv import load_dotenv
 
-bot = telebot.TeleBot('6705889567:AAGCti5hXgg034SjUFtBYntfGxl7bOzNF70');
+load_dotenv()
+
+api_key = os.environ.get("MY_API_KEY")
+
+bot = telebot.TeleBot(api_key);
 
 
 @bot.message_handler(content_types=['text'])
