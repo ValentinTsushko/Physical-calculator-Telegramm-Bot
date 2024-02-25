@@ -25,9 +25,10 @@ def MengeG (message, bot):
 
 def SuchenInt(message, bot, Menge):
     pattern = r'(\w+)\s*=\s*([^ ]+)';
-    Uebereinstimmen = re.findall(pattern, input_string);
+    Uebereinstimmen = re.findall(pattern, message.text);
     variablen = {};
     for Uebereinstimm in Uebereinstimmen:
         Name, Wert = Uebereinstimm
+        print(Name)
+        print(Wert)
         variablen[Name] = Wert
-    print(f"a_1_1 {variablen[a_1_1]}")

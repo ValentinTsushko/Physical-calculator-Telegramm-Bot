@@ -16,9 +16,9 @@ def Start(message):
     user_markup.row('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit einer Platte');
     user_markup.row('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit eines Stabes');
 
-    if message.text == 'Quadratische Gleichung':
+    if (message.text == 'Quadratische Gleichung'):
         return quadratischeGleichung.Start(message, bot);
-    elif message.text == 'Quadratische Gleichung':
+    elif (message.text == 'System linearer Gleichungen'):
         return system_linearerGleichungen.Start(message, bot);
 
 bot.polling(none_stop=True, interval=0);
