@@ -1,35 +1,32 @@
 import telebot;
 import math;
+import re;
 
 
 def Start(message, bot):
     bot.send_message(message.from_user.id, "Bitte geben Sie a b c ein, wissen das ax² + bx + c = 0");
-    bot.send_message(message.from_user.id, "Bitte geben Sie a");
-    bot.register_next_step_handler(message, GebenA, bot);
+    bot.send_message(message.from_user.id, "Bitte füllen mit Raum und wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
+    bot.send_message(message.from_user.id, "Zum Beispiel:");
+    bot.send_message(message.from_user.id, "a = 1 b = 5.75 c = 4");
+    bot.send_message(message.from_user.id, "Antwort:");
+    bot.send_message(message.from_user.id, "D = 17.0625, dann x_1 = -0.809661044767712 und x_2 = -4.9403389552322885 ist");
+    bot.register_next_step_handler(message, SuchenInt, bot);
 
-def GebenA(message, bot):
-    a = int(message.text);
+def SuchenInt(message, bot):
+    pattern = r'(\w+)\s*=\s*([^ \n]+)';
+    Uebereinstimmen = re.findall(pattern, message.text);
+    variablen = {};
+    for Uebereinstimm in Uebereinstimmen:
+        Name, Wert = Uebereinstimm;
+        print(Name)
+        print(Wert)
+        variablen[Name] = float(Wert);
 
-    if(a == 0):
-        bot.send_message(message.from_user.id, "Entschuldigung! Es ist nich quadratische gleichung!");
-    else:
-        bot.send_message(message.from_user.id, "Bitte geben Sie b");
-        bot.register_next_step_handler(message, GebenB, bot, a);
+    bot.send_message(message.from_user.id, f"Ihre Gleichung ist {variablen['a']}x² + {variablen['b']}x + {variablen['c']} = 0?");
+    bot.register_next_step_handler(message, Loesung, bot, variablen['a'], variablen['b'], variablen['c']);
 
-def GebenB(message, bot, a):
-    b = int(message.text);
-
-    bot.send_message(message.from_user.id, "Bitte geben Sie c");
-    bot.register_next_step_handler(message, GebenC, bot, a, b);
-
-def GebenC(message, bot, a, b):
-    c = int(message.text);
-
-    bot.send_message(message.from_user.id, f"Ihre Gleichung ist {a}x² + {b}x + {c} = 0?");
-    bot.register_next_step_handler(message, Leosung, bot, a, b, c);
-
-def Leosung(message, bot, a, b, c):
-    if(message.text == 'ja' or message.text == 'Ja'or message.text == 'jö' or message.text == 'Jö' or message.text == '1'):
+def Loesung(message, bot, a, b, c):
+    if(message.text == 'ja' or message.text == 'Ja'or message.text == 'jö' or message.text == 'Jö' or message.text == '1'or message.text == 'jo' or message.text == 'Jo'or message.text == 'да' or message.text == 'Да' or message.text == 'yes' or message.text == 'Yes'):
         D = b**2 - 4*a*c;
         if (D > 0):
             x_1 = (-b + math.sqrt(D))/(2*a);
