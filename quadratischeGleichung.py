@@ -13,17 +13,17 @@ def Start(message, bot):
     bot.register_next_step_handler(message, SuchenInt, bot);
 
 def SuchenInt(message, bot):
-    pattern = r'(\w+)\s*=\s*([^ ]+)';
+    pattern = r'(\w+)\s*=\s*([^ \n]+)';
     Uebereinstimmen = re.findall(pattern, message.text);
     variablen = {};
     for Uebereinstimm in Uebereinstimmen:
         Name, Wert = Uebereinstimm;
         print(Name)
         print(Wert)
-        variablen[Name] = Wert;
+        variablen[Name] = float(Wert);
 
-    bot.send_message(message.from_user.id, f"Ihre Gleichung ist {float(variablen['a'])}x² + {float(variablen['b'])}x + {float(variablen['c'])} = 0?");
-    bot.register_next_step_handler(message, Loesung, bot, float(variablen['a']), float(variablen['b']), float(variablen['c']));
+    bot.send_message(message.from_user.id, f"Ihre Gleichung ist {variablen['a']}x² + {variablen['b']}x + {variablen['c']} = 0?");
+    bot.register_next_step_handler(message, Loesung, bot, variablen['a'], variablen['b'], variablen['c']);
 
 def Loesung(message, bot, a, b, c):
     if(message.text == 'ja' or message.text == 'Ja'or message.text == 'jö' or message.text == 'Jö' or message.text == '1'):
