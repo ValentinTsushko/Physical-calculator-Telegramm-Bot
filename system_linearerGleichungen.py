@@ -18,7 +18,7 @@ def MengeG (message, bot):
         bot.send_message(message.from_user.id, "2) a_2_1*x + a_2_2*y = a_2_3");
         bot.send_message(message.from_user.id, "Bitte füllen mit Raum und wenn Sie nicht ganze Zahlen haben, dann schreiben Sie mit dem Punkt");
         bot.send_message(message.from_user.id, "Zum Beispiel:");
-        bot.send_message(message.from_user.id, "a_1_1 = 4.4 a_1_2 = 5 a_1_3 = 1.5 a_2_1 = 8 a_2_2 = -2 a_2_3 = 38.75");
+        bot.send_message(message.from_user.id, "a_1_1 = 4.4 a_1_2 = 5 a_1_3 = 1.5 \n a_2_1 = 8 a_2_2 = -2 a_2_3 = 38.75");
         bot.send_message(message.from_user.id, "Wird aussehen wie");
         bot.send_message(message.from_user.id, "1) 4.4*x + 5*y = 1.5");
         bot.send_message(message.from_user.id, "2) 8*x - 2*y = 38.75");

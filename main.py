@@ -7,18 +7,27 @@ bot = telebot.TeleBot('6705889567:AAGCti5hXgg034SjUFtBYntfGxl7bOzNF70');
 
 @bot.message_handler(content_types=['text'])
 def Start(message):
-    bot.send_message(message.from_user.id, 'Serwus..');
+    bot.send_message(message.from_user.id, 'Servus!');
+    create_keyboard(message, bot);
 
-    user_markup = telebot.types.ReplyKeyboardMarkup(True);
-    user_markup.row('System linearer Gleichungen');
-    user_markup.row('Quadratische Gleichung');
-    user_markup.row('Mathematisch-physikalische Gleichung der Saitenschwingung');
-    user_markup.row('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit einer Platte');
-    user_markup.row('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit eines Stabes');
+def create_keyboard(message, bot):
+    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.add('System linearer Gleichungen')
+    keyboard.add('Quadratische Gleichung')
+    keyboard.add('Mathematisch-physikalische Gleichung der Saitenschwingung')
+    keyboard.add('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit einer Platte')
+    keyboard.add('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit eines Stabes')
+
 
     if (message.text == 'Quadratische Gleichung'):
         return quadratischeGleichung.Start(message, bot);
     elif (message.text == 'System linearer Gleichungen'):
         return system_linearerGleichungen.Start(message, bot);
+    elif (message.text == 'Mathematisch-physikalische Gleichung der Saitenschwingung'):
+        bot.send_message(message.from_user.id, 'Work in progress');
+    elif (message.text == 'Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit einer Platte'):
+        bot.send_message(message.from_user.id, 'Work in progress');
+    elif (message.text == 'Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit eines Stabes'):
+        bot.send_message(message.from_user.id, 'Work in progress');
 
 bot.polling(none_stop=True, interval=0);

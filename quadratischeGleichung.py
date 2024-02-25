@@ -26,7 +26,7 @@ def SuchenInt(message, bot):
     bot.register_next_step_handler(message, Loesung, bot, variablen['a'], variablen['b'], variablen['c']);
 
 def Loesung(message, bot, a, b, c):
-    if(message.text == 'ja' or message.text == 'Ja'or message.text == 'jö' or message.text == 'Jö' or message.text == '1'):
+    if(message.text == 'ja' or message.text == 'Ja'or message.text == 'jö' or message.text == 'Jö' or message.text == '1'or message.text == 'jo' or message.text == 'Jo'or message.text == 'да' or message.text == 'Да' or message.text == 'yes' or message.text == 'Yes'):
         D = b**2 - 4*a*c;
         if (D > 0):
             x_1 = (-b + math.sqrt(D))/(2*a);
