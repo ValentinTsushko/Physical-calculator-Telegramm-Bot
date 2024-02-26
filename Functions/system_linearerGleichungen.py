@@ -8,7 +8,7 @@ def Start(message, bot):
     bot.register_next_step_handler(message, MengeG, bot);
 
 def MengeG (message, bot):
-    Menge = int(message.text)
+    Menge = int(message.text);
     if(Menge == 0 or Menge == 1):
         bot.send_message(message.from_user.id, "Entschuldigung! Es ist kein System!");
     elif(Menge == 2):
@@ -49,14 +49,12 @@ def SuchenInt(message, bot, Menge):
     Uebereinstimmen = re.findall(pattern, message.text);
     variablen = {};
     for Uebereinstimm in Uebereinstimmen:
-        Name, Wert = Uebereinstimm
-        print(Name)
-        print(Wert)
+        Name, Wert = Uebereinstimm;
         variablen[Name] = float(Wert);
     if(Menge == 2):
         LoesenSys_2d(message, bot, variablen);
     else:
-        LoesenSys_nd(message, bot, variablen, Menge)
+        LoesenSys_nd(message, bot, variablen, Menge);
 
 def LoesenSys_2d(message, bot, variablen):
     Delta = variablen['a_1_1']*variablen['a_2_2'] - variablen['a_2_1']*variablen['a_1_2'];
@@ -66,7 +64,7 @@ def LoesenSys_2d(message, bot, variablen):
     x = DeltaX / Delta;
     y = DeltaY / Delta;
 
-    bot.send_message(message.from_user.id, f"x = {x} und y = {y}")
+    bot.send_message(message.from_user.id, f"x = {x} und y = {y}");
 
 def LoesenSys_nd(message, bot, variablen, Menge):
     K_M = np.array(list(variablen.values()));
@@ -80,5 +78,5 @@ def LoesenSys_nd(message, bot, variablen, Menge):
     print();
     print(A_n_n);
 
-    Solve = np.linalg.solve(A_n_n, B_n)
+    Solve = np.linalg.solve(A_n_n, B_n);
     bot.send_message(message.from_user.id, f"x_1, x_2, ... x_{Menge} = {Solve}");

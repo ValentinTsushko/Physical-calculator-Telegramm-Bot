@@ -18,8 +18,6 @@ def SuchenInt(message, bot):
     variablen = {};
     for Uebereinstimm in Uebereinstimmen:
         Name, Wert = Uebereinstimm;
-        print(Name)
-        print(Wert)
         variablen[Name] = float(Wert);
 
     bot.send_message(message.from_user.id, f"Ihre Gleichung ist {variablen['a']}x² + {variablen['b']}x + {variablen['c']} = 0?");
@@ -40,4 +38,4 @@ def Loesung(message, bot, a, b, c):
             bot.send_message(message.from_user.id, f"D = {D}, dann keine Wurzel sind");
 
     else:
-        Start(message, bot)
+        Start(message, bot);

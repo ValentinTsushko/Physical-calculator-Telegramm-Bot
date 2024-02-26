@@ -20,7 +20,7 @@ def start_message(message):
                 "/Quad - Quadratische Gleichung\n" \
                 "/Saitenschwingung - Mathematisch-physikalische Gleichung der Saitenschwingung"
 
-    bot.send_message(message.chat.id, help_text)
+    bot.send_message(message.chat.id, help_text);
 
 # helfen Menu
 @bot.message_handler(commands=['System'])
@@ -35,16 +35,15 @@ def System_message(message):
 
 @bot.message_handler(content_types=['text'])
 def Start(message):
-    bot.send_message(message.from_user.id, 'Servus!');
     create_keyboard(message, bot);
 
 def create_keyboard(message, bot):
-    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add('System linearer Gleichungen')
-    keyboard.add('Quadratische Gleichung')
-    keyboard.add('Mathematisch-physikalische Gleichung der Saitenschwingung')
-    keyboard.add('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit einer Platte')
-    keyboard.add('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit eines Stabes')
+    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True);
+    keyboard.add('System linearer Gleichungen');
+    keyboard.add('Quadratische Gleichung');
+    keyboard.add('Mathematisch-physikalische Gleichung der Saitenschwingung');
+    keyboard.add('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit einer Platte');
+    keyboard.add('Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit eines Stabes');
 
 
     if (message.text == 'Quadratische Gleichung'):

@@ -19,15 +19,14 @@ def SuchenVar(message, bot):
     Uebereinstimmen = re.findall(pattern, message.text);
     variablen = {};
     for Uebereinstimm in Uebereinstimmen:
-        Name, Wert = Uebereinstimm
-        print(Name)
-        print(Wert)
+        Name, Wert = Uebereinstimm;
+
         variablen[Name] = float(Wert);
+
     SaitenschwingungGleichung(message, bot, variablen);
 
 def waveEquationDiff(t, y, c, L, variablen):
-    dydt = np.zeros_like(y)
-    #dydt[0] = y[1]
+    dydt = np.zeros_like(y);
     dydt[0] = variablen['dydt0'];
     dydt[-1] = variablen['dydt1'];
     dydt[1:-1] = c**2 * (y[:-2] - 2*y[1:-1] + y[2:]) / L**2;
@@ -42,7 +41,7 @@ def SaitenschwingungGleichung(message, bot, variablen):
     initial_displacement = np.sin(np.pi * np.linspace(0, 1, 101));  # Исходное смещение струны
     initial_velocity = np.zeros_like(initial_displacement);         # Исходная скорость струны
 
-    initial_conditions = np.concatenate([initial_displacement, initial_velocity])
+    initial_conditions = np.concatenate([initial_displacement, initial_velocity]);
 
     t = (0, variablen['t']);  # Интегрируем от 0 до n секунд
 
@@ -50,12 +49,12 @@ def SaitenschwingungGleichung(message, bot, variablen):
     Loesung = s_i(waveEquationDiff, t, initial_conditions, args=(c, L, variablen), t_eval=np.linspace(0, 2, 100))
     bot.send_message(message.from_user.id, f"{Loesung}");
 
-    plt.figure(figsize=(8, 4))
-    plt.plot(Loesung.t, Loesung.y[0:101, :].T)
-    plt.title('Saitenvibrationen')
-    plt.xlabel('Zeit')
-    plt.ylabel('Saitevershobung')
-    buffer = BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
+    plt.figure(figsize=(8, 4));
+    plt.plot(Loesung.t, Loesung.y[0:101, :].T);
+    plt.title('Saitenvibrationen');
+    plt.xlabel('Zeit');
+    plt.ylabel('Saitevershobung');
+    buffer = BytesIO();
+    plt.savefig(buffer, format='png');
+    buffer.seek(0);
     bot.send_photo(chat_id=message.chat.id, photo=buffer);
