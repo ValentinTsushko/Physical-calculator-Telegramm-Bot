@@ -1,8 +1,9 @@
 import telebot;
-import os
+import os;
 import quadratischeGleichung;
 import system_linearerGleichungen;
-from dotenv import load_dotenv
+import MathematischPhysikalischeGleichungSaitenschwingung;
+from dotenv import load_dotenv;
 
 load_dotenv()
 
@@ -10,6 +11,27 @@ api_key = os.environ.get("MY_API_KEY")
 
 bot = telebot.TeleBot(api_key);
 
+@bot.message_handler(commands=['start', 'help'])
+def start_message(message):
+    help_text = "Hallo! Ich bin Ihre Bot. Ich kann:\n\n" \
+                "/start - Starten\n" \
+                "/help - Получить справку\n" \
+                "/System - System linearer Gleichungen\n" \
+                "/Quad - Quadratische Gleichung\n" \
+                "/Saitenschwingung - Mathematisch-physikalische Gleichung der Saitenschwingung"
+
+    bot.send_message(message.chat.id, help_text)
+
+# helfen Menu
+@bot.message_handler(commands=['System'])
+def System_message(message):
+    return system_linearerGleichungen.Start(message, bot);
+@bot.message_handler(commands=['Quad'])
+def System_message(message):
+    return quadratischeGleichung.Start(message, bot);
+@bot.message_handler(commands=['Saitenschwingung'])
+def System_message(message):
+    return MathematischPhysikalischeGleichungSaitenschwingung.Start(message, bot);
 
 @bot.message_handler(content_types=['text'])
 def Start(message):
@@ -30,7 +52,7 @@ def create_keyboard(message, bot):
     elif (message.text == 'System linearer Gleichungen'):
         return system_linearerGleichungen.Start(message, bot);
     elif (message.text == 'Mathematisch-physikalische Gleichung der Saitenschwingung'):
-        bot.send_message(message.from_user.id, 'Work in progress');
+        return MathematischPhysikalischeGleichungSaitenschwingung.Start(message, bot);
     elif (message.text == 'Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit einer Platte'):
         bot.send_message(message.from_user.id, 'Work in progress');
     elif (message.text == 'Mathematisch-physikalische Gleichung der Wärmeleitfähigkeit eines Stabes'):
