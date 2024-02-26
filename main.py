@@ -1,8 +1,8 @@
 import telebot;
 import os;
-import quadratischeGleichung;
-import system_linearerGleichungen;
-import MathematischPhysikalischeGleichungSaitenschwingung;
+import Functions.quadratischeGleichung as quadratischeGleichung;
+import Functions.system_linearerGleichungen as system_linearerGleichungen;
+import Functions.MathematischPhysikalischeGleichungSaitenschwingung as MathematischPhysikalischeGleichungSaitenschwingung;
 from dotenv import load_dotenv;
 
 load_dotenv()
