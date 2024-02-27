@@ -34,7 +34,6 @@ def num_equations(message, bot, current_language, translations):
     bot.register_next_step_handler(message, find_integers, bot, num_equations, current_language, translations);
 
 def find_integers(message, bot, num_equations, current_language, translations):
-    print('KEK3')
     try:
         pattern = r'(\w+)\s*=\s*([^ \n]+)';
         matches = re.findall(pattern, message.text);
@@ -43,7 +42,6 @@ def find_integers(message, bot, num_equations, current_language, translations):
             name, value = match;
             variables[name] = float(value);
         if num_equations == 2:
-            print('KEK2')
             solve_system_2d(message, bot, variables);
         else:
             solve_system_nd(message, bot, variables, num_equations);
@@ -53,7 +51,6 @@ def find_integers(message, bot, num_equations, current_language, translations):
         bot.register_next_step_handler(message, find_integers, bot, num_equations, current_language, translations);
 
 def solve_system_2d(message, bot, variables):
-    print('KEK')
     delta = variables['a_1_1']*variables['a_2_2'] - variables['a_2_1']*variables['a_1_2'];
     delta_x = variables['a_1_3']*variables['a_2_2'] - variables['a_2_3']*variables['a_1_2'];
     delta_y = variables['a_1_1']*variables['a_2_3'] - variables['a_2_1']*variables['a_1_3'];
