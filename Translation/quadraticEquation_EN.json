@@ -1,0 +1,7 @@
+{
+  "Please_enter_text": "Please enter a b c, knowing that ax² + bx + c = 0\nPlease write it as shown in the example. If you have non-integer values, use a dot.\nFor example:",
+  "Answer_text": "D = 17.0625, then x_1 = -0.809661044767712 and x_2 = -4.9403389552322885",
+  "Check_text": "Is your equation",
+  "One_root_text": "then only one root x = ",
+  "No_roots_text": " then no roots"
+}

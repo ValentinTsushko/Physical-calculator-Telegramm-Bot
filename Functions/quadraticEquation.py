@@ -1,18 +1,24 @@
 import telebot
 import math
 import re
+import os
+import json
 
-def start(message, bot):
-    bot.send_message(message.from_user.id, "Please enter a b c, knowing that ax² + bx + c = 0\n"
-    +"Please write it as shown in the example. If you have non-integer values, use a dot.\n"
-    +"For example:");
+def load_translation(language):
+    file_path = os.path.join('Translation', f'quadraticEquation_{language}.json')
+    with open(file_path, 'r', encoding='utf-8') as file:
+        translations = json.load(file)
+    return translations
+
+def startQE(message, bot, current_language):
+    translations = load_translation(current_language);
+    bot.send_message(message.from_user.id, translations.get("Please_enter_text"));
     bot.send_message(message.from_user.id, "a = 1 b = 5.75 c = 4");
-    bot.send_message(message.from_user.id, "Answer:\n"
-    "D = 17.0625, then x_1 = -0.809661044767712 and x_2 = -4.9403389552322885");
+    bot.send_message(message.from_user.id, translations.get("Answer_text"));
 
-    bot.register_next_step_handler(message, find_values, bot)
+    bot.register_next_step_handler(message, find_values, bot, translations)
 
-def find_values(message, bot):
+def find_values(message, bot, translations):
     pattern = r'(\w+)\s*=\s*([^ \n]+)';
     matches = re.findall(pattern, message.text);
     variables = {};
@@ -21,12 +27,12 @@ def find_values(message, bot):
         name, value = match;
         variables[name] = float(value);
 
-    bot.send_message(message.from_user.id, f"Is your equation {variables['a']}x² "
+    bot.send_message(message.from_user.id, f"{translations.get('Check_text')} {variables['a']}x² "
     +f"+ {variables['b']}x + {variables['c']} = 0?");
-    bot.register_next_step_handler(message, solution, bot, variables['a'], variables['b'], variables['c']);
+    bot.register_next_step_handler(message, solution, bot, variables['a'], variables['b'], variables['c'], translations);
 
-def solution(message, bot, a, b, c):
-    if message.text.lower() in ['ja', 'jö', 'jo', 'да', 'yes']:
+def solution(message, bot, a, b, c, translations):
+    if message.text.lower() in ['ja', 'jö', 'jo', 'так', 'да', 'yes']:
         D = b**2 - 4*a*c;
         if (D > 0):
             x_1 = (-b + math.sqrt(D)) / (2*a);
@@ -35,9 +41,9 @@ def solution(message, bot, a, b, c):
 
         elif (D == 0):
             x = -b / (2*a);
-            bot.send_message(message.from_user.id, f"D = {D}, then only one root x = {x}");
+            bot.send_message(message.from_user.id, f"D = {D}, {translations.get('One_root_text')}{x}");
         else:
-            bot.send_message(message.from_user.id, f"D = {D}, then no roots");
+            bot.send_message(message.from_user.id, f"D = {D}, {translations.get('No_roots_text')}");
 
     else:
         start(message, bot);

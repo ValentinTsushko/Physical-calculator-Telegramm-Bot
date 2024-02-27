@@ -1,0 +1,8 @@
+{
+  "start_LSE_text": "Bitte geben Sie ein, wie viele Gleichungen Sie haben\nZum Beispiel: 2 oder 3",
+  "Sorry_text": "Entschuldigung! Das ist kein System!",
+  "Example_text": "Bitte geben Sie a_1_1 ... a_n_n ein\nWenn wir wissen:\n1) a_1_1x + a_1_2y = a_1_3\n2) a_2_1x + a_2_2y = a_2_3\nBitte schreiben Sie es wie im Beispiel. Wenn Sie nicht ganze Zahlen haben, verwenden Sie einen Punkt.\nZum Beispiel:\n",
+  "Will_look_like_text": "Wird aussehen wie:\n1) 4.4x + 5y = 1.5\n2) 8x - 2y = 38.75\nAntwort:\nx = 4.031762295081967 und y = -3.2479508196721314",
+  "Please_enter_text": "Bitte geben Sie a_1_1, ... a_n_n ein\nWenn wir wissen:\n1) a_1_1x_1 + a_1_2x_2 + ... + a_1_nx_n = B_1\n2) a_2_1x_1 + a_2_2x_2 + ... + a_2_nx_n = B_2\n..................................................\nn) a_n_1x_1 + a_n_2x_2 + ... + a_n_n*x_n = B_n\n\nBitte schreiben Sie es wie im Beispiel gezeigt. Wenn Sie nicht ganzzahlige Werte haben, verwenden Sie einen Punkt.\nZum Beispiel:\n",
+  "Will_look_like_2": "Sieht so aus:\n1) 4.4x_1 + 5x_2 + 1.5x_3 = 3\n2) 8x_1 - 2x_2 + 7.75x_3 = 38.75\n3) 6x_1 + 1x_2 + 1.5*x_3 = 6\nAntwort:\nx_1, x_1, ... x_n = [-0.09181701 -0.7867268 4.89175258]\n"
+}

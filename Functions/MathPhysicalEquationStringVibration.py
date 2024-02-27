@@ -1,16 +1,22 @@
 import telebot
 import math
 import re
+import os
+import json
 import numpy as np
 from scipy.integrate import solve_ivp as s_i
 from io import BytesIO
 import matplotlib.pyplot as plt
 
-def start(message, bot):
-    bot.send_message(message.from_user.id, "Please enter string length L, wave propagation speed c,"
-    +" time t, initial displacement of the string dydt0, and end displacement dydt1.\n"
-    +"Please write it as shown in the example. If you have non-integer values, use a dot.\n"
-    +"For example:");
+def load_translation(language):
+    file_path = os.path.join('Translation', f'MathPhysicalEquationStringVibration_{language}.json')
+    with open(file_path, 'r', encoding='utf-8') as file:
+        translations = json.load(file)
+    return translations
+
+def startMPESV(message, bot, current_language):
+    translations = load_translation(current_language);
+    bot.send_message(message.from_user.id, translations.get("start_MPESV_text"));
     bot.send_message(message.from_user.id, "L = 1 c = 1 t = 2 \ndydt0 = 74 dydt1 = 0");
     bot.register_next_step_handler(message, find_variables, bot);
 

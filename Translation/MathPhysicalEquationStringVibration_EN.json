@@ -1,0 +1,3 @@
+{
+  "start_MPESV_text": "Please enter string length L, wave propagation speed c, time t, initial displacement of the string dydt0, and end displacement dydt1.\nPlease write it as shown in the example. If you have non-integer values, use a dot.\nFor example:"
+}
