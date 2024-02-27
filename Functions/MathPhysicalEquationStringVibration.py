@@ -25,19 +25,15 @@ def find_variables(message, bot, translations):
         pattern = r'(\w+)\s*=\s*([^ \n]+)';
         matches = re.findall(pattern, message.text);
         variables = {};
-
         for match in matches:
             name, value = match;
             variables[name] = float(value);
 
         solve_wave_equation(message, bot, variables);
-
     except Exception as e:
         bot.send_message(message.from_user.id, translations.get("Error_text"));
         print(f"Error: {e}");
         bot.register_next_step_handler(message, find_variables, bot, translations);
-
-
 
 def wave_equation_diff(t, y, c, L, variables):
     dydt = np.zeros_like(y);
@@ -47,13 +43,11 @@ def wave_equation_diff(t, y, c, L, variables):
     return dydt;
 
 def solve_wave_equation(message, bot, variables):
-    # String parameters
     L = variables['L'];  # String length
     c = variables['c'];  # Wave propagation speed
-
-    # Initial conditions
+    
     initial_displacement = np.sin(np.pi * np.linspace(0, 1, 101));  # Initial displacement of the string
-    initial_velocity = np.zeros_like(initial_displacement);  # Initial velocity of the string
+    initial_velocity = np.zeros_like(initial_displacement);         # Initial velocity of the string
 
     initial_conditions = np.concatenate([initial_displacement, initial_velocity]);
 
