@@ -3,5 +3,6 @@
   "Answer_text": "D = 17,0625, dann x_1 = -0,809661044767712 und x_2 = -4,9403389552322885",
   "Check_text": "Ist Ihre Gleichung",
   "One_root_text": "dann nur eine Wurzel x = ",
-  "No_roots_text": " dann keine Wurzeln"
+  "No_roots_text": " dann keine Wurzeln",
+  "Error_text": "Hoppla, es gab einen Eingabefehler, bitte versuchen Sie es erneut"
 }

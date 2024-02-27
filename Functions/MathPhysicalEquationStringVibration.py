@@ -18,18 +18,26 @@ def startMPESV(message, bot, current_language):
     translations = load_translation(current_language);
     bot.send_message(message.from_user.id, translations.get("start_MPESV_text"));
     bot.send_message(message.from_user.id, "L = 1 c = 1 t = 2 \ndydt0 = 74 dydt1 = 0");
-    bot.register_next_step_handler(message, find_variables, bot);
+    bot.register_next_step_handler(message, find_variables, bot, translations);
 
-def find_variables(message, bot):
-    pattern = r'(\w+)\s*=\s*([^ \n]+)';
-    matches = re.findall(pattern, message.text);
-    variables = {};
+def find_variables(message, bot, translations):
+    try:
+        pattern = r'(\w+)\s*=\s*([^ \n]+)';
+        matches = re.findall(pattern, message.text);
+        variables = {};
 
-    for match in matches:
-        name, value = match;
-        variables[name] = float(value);
+        for match in matches:
+            name, value = match;
+            variables[name] = float(value);
 
-    solve_wave_equation(message, bot, variables);
+        solve_wave_equation(message, bot, variables);
+
+    except Exception as e:
+        bot.send_message(message.from_user.id, translations.get("Error_text"));
+        print(f"Error: {e}");
+        bot.register_next_step_handler(message, find_variables, bot, translations);
+
+
 
 def wave_equation_diff(t, y, c, L, variables):
     dydt = np.zeros_like(y);

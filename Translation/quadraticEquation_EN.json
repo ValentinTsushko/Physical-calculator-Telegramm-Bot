@@ -3,5 +3,6 @@
   "Answer_text": "D = 17.0625, then x_1 = -0.809661044767712 and x_2 = -4.9403389552322885",
   "Check_text": "Is your equation",
   "One_root_text": "then only one root x = ",
-  "No_roots_text": " then no roots"
+  "No_roots_text": " then no roots",
+  "Error_text": "Oops, there was an input error, please try again"
 }

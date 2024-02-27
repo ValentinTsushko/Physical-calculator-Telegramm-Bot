@@ -16,22 +16,30 @@ def startQE(message, bot, current_language):
     bot.send_message(message.from_user.id, "a = 1 b = 5.75 c = 4");
     bot.send_message(message.from_user.id, translations.get("Answer_text"));
 
-    bot.register_next_step_handler(message, find_values, bot, translations)
+    bot.register_next_step_handler(message, find_values, bot, translations, current_language)
 
-def find_values(message, bot, translations):
-    pattern = r'(\w+)\s*=\s*([^ \n]+)';
-    matches = re.findall(pattern, message.text);
-    variables = {};
+def find_values(message, bot, translations, current_language):
+    try:
+        pattern = r'(\w+)\s*=\s*([^ \n]+)';
+        matches = re.findall(pattern, message.text);
+        variables = {};
 
-    for match in matches:
-        name, value = match;
-        variables[name] = float(value);
+        for match in matches:
+            name, value = match;
+            variables[name] = float(value);
 
-    bot.send_message(message.from_user.id, f"{translations.get('Check_text')} {variables['a']}x² "
+        bot.send_message(message.from_user.id, f"{translations.get('Check_text')} {variables['a']}x² "
     +f"+ {variables['b']}x + {variables['c']} = 0?");
-    bot.register_next_step_handler(message, solution, bot, variables['a'], variables['b'], variables['c'], translations);
 
-def solution(message, bot, a, b, c, translations):
+        bot.register_next_step_handler(message, solution, bot, variables['a'], variables['b'], variables['c'], translations, current_language);
+    except Exception as e:
+        bot.send_message(message.from_user.id, translations.get("Error_text"));
+        print(f"Error: {e}");
+        bot.register_next_step_handler(message, find_values, bot, translations, current_language);
+
+
+
+def solution(message, bot, a, b, c, translations, current_language):
     if message.text.lower() in ['ja', 'jö', 'jo', 'так', 'да', 'yes']:
         D = b**2 - 4*a*c;
         if (D > 0):
@@ -46,4 +54,4 @@ def solution(message, bot, a, b, c, translations):
             bot.send_message(message.from_user.id, f"D = {D}, {translations.get('No_roots_text')}");
 
     else:
-        start(message, bot);
+        startQE(message, bot, current_language);
