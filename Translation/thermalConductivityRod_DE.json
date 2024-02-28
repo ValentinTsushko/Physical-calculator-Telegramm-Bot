@@ -1,0 +1,5 @@
+{
+  "startTCR_text": "Ist die Anfangstemperatur des Stabs zu Beginn nicht homogen?",
+  "find_Out_Variables_text": "Bitte geben Sie die Länge L, den Wärmeleitkoeffizienten alpha, die Zeit t, die Anfangstemperatur am einen Ende T_fixed_0, die Anfangstemperatur am anderen Ende T_fixed_1, die Anzahl der Knoten im Raum (Genauigkeit im Raum) Nx und die Anzahl der Knoten über die Zeit (Genauigkeit in der Zeit) Nt ein.\nBitte schreiben Sie dies wie im Beispiel gezeigt. Verwenden Sie bei nicht ganzzahligen Werten einen Punkt.\nZum Beispiel:",
+  "Error_text": "Hoppla, es ist ein Eingabefehler aufgetreten. Bitte versuchen Sie es erneut."
+}

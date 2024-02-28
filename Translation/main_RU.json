@@ -1,3 +1,3 @@
 {
-  "start_help_text": "Привет! Я твой бот. Я могу выполнить:\n\n/start - Начать\n/help - Получить справку\n/System - Система линейных уравнений\n/Quad - Квадратное уравнение\n/StringVibration - Мат.-физическое уравнение вибрации струны\n/Change_Language_EN - English\n/Change_Language_DE - Deutsch\n/Change_Language_UA - Українська\n/Change_Language_RU - Русский"
+  "start_help_text": "Привет! Я твой бот. Я могу выполнить:\n\n/start - Начать\n/help - Получить справку\n/System - Система линейных уравнений\n/Quad - Квадратное уравнение\n/StringVibration - Мат.-физическое уравнение вибрации струны\n/RodHeating - Мат.-физическое уравнение нагрева стержня\n/Change_Language_EN - English\n/Change_Language_DE - Deutsch\n/Change_Language_UA - Українська\n/Change_Language_RU - Русский"
 }

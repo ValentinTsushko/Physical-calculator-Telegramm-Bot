@@ -1,0 +1,5 @@
+{
+  "startTCR_text": "Is the initial temperature of the rod non-uniform at the initial moment?",
+  "find_Out_Variables_text": "Please enter the length L, thermal conductivity coefficient alpha, time t, initial temperature at one end T_fixed_0, initial temperature at the other end T_fixed_1, number of nodes in space (accuracy in space) Nx, and number of nodes over time (accuracy in time) Nt.\nPlease write this as shown in the example. If you have non-integer values, use a dot.\nFor example:",
+  "Error_text": "Oops, there was an input error, please try again"
+}

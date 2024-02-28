@@ -1,3 +1,3 @@
 {
-  "start_help_text": "Hallo! Ich bin dein Bot. Ich kann:\n\n/start - Starten\n/help - Hilfe erhalten\n/System - System linearer Gleichungen\n/Quad - Quadratische Gleichung\n/StringVibration - Mathematisch-physikalische Gleichung der Saitenschwingung\n/Change_Language_EN - English\n/Change_Language_DE - Deutsch\n/Change_Language_UA - Українська\n/Change_Language_RU - Русский"
+  "start_help_text": "Hallo! Ich bin dein Bot. Ich kann:\n\n/start - Starten\n/help - Hilfe erhalten\n/System - System linearer Gleichungen\n/Quad - Quadratische Gleichung\n/StringVibration - Mathematisch-physikalische Gleichung der Saitenschwingung\n/RodHeating – Mathematisch-physikalische Gleichung zur Erwärmung des Stabes\n/Change_Language_EN - English\n/Change_Language_DE - Deutsch\n/Change_Language_UA - Українська\n/Change_Language_RU - Русский"
 }
