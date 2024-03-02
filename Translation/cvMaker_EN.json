@@ -2,8 +2,8 @@
   "startCVM_text": "Welcome to CV maker, let's make your new CV.\n Please enter your name and surname. Please enter in Latin letters and separated by spaces.",
   "jobTitle_text": "Give the name of the vacancy for which you are applying.",
   "CareerObjective_text": "Describe yourself and your career goals.",
-  "WorkExperience_text": "Рow many jobs have you had? Enter the number please.",
-  "WorkTitle_text": f"Enter the title of your {i} job.",
+  "WorkExperience_text": "How many jobs have you had? Enter the number please.",
+  "WorkTitle_text": "Enter the title of your {i} job.",
   "WorkTown_text": "Enter the name of the city of this job",
   "CorpName_text": "Enter the name of company were have you worked.",
   "StartWork_text": "Enter the month and year you started working.",
@@ -14,5 +14,6 @@
   "DegreeEdu_text": "Enter your degree of education.",
   "StartEdu_text": "Enter the month and year you started education.",
   "EndEdu_text": "Enter the month and year you ended education.",
-  "FacuName_text": "Enter the name of faculty."
+  "FacuName_text": "Enter the name of faculty.",
+  "Doc_text": "Your's CV."
 }
