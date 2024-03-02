@@ -5,6 +5,7 @@ import Functions.quadraticEquation as quadraticEquation
 import Functions.linearSystemEquations as linearSystemEquations
 import Functions.mathPhysicalEquationStringVibration as MathPhysicalEquationStringVibration
 import Functions.thermalConductivityRod as thermalConductivityRod
+import Functions.bot_CVMaker as CVMaker
 from dotenv import load_dotenv
 
 load_dotenv();
@@ -51,6 +52,7 @@ def start_message(message):
                 "/Quad - Quadratic equation\n"
                 "/StringVibration - Mathematical-physical equation of string vibration\n"
                 "/RodHeating - Mathematical-physical equation of heating the rod\n"
+                "/CVMaker - automatical CV maker\n"
                 "/Change_Language_EN - English"
                 "/Change_Language_DE - Deutsch"
                 "/Change_Language_UA - Українська"
@@ -71,6 +73,9 @@ def string_vibration_message(message):
 @bot.message_handler(commands=['RodHeating'])
 def rod_heating_message(message):
     return thermalConductivityRod.startTCR(message, bot, current_language);
+@bot.message_handler(commands=['CVMaker'])
+def rod_heating_message(message):
+    return CVMaker.startCVM(message, bot, current_language);
 
 def create_keyboard(message, bot):
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True);
@@ -89,7 +94,9 @@ def create_keyboard(message, bot):
     elif message.text == 'Mathematical-physical equation of heat conductivity of a plate':
         return thermalConductivityRod.startTCR(message, bot, current_language);
     elif message.text == 'Mathematical-physical equation of heat conductivity of a rod':
-        bot.send_message(message.from_user.id, 'Work in progress');
+        return thermalConductivityRod.startTCR(message, bot, current_language);
+    elif message.text == 'CV maker':
+        return CVMaker.startCVM(message, bot, current_language);
 
 
 

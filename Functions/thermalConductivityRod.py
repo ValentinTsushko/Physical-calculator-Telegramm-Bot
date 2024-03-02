@@ -87,12 +87,12 @@ def boundary_condition(x, t, alpha, T_fixed_0, T_fixed_1, L):
 
 # Task parameters
 def solve_conduction_equation(message, bot, variables):
-     L = variables['L'];            # Rod length
-     t = variables['t'];            # Time
-     alpha = variables['alpha'];    # Coefficient of thermal conductivity
+    L = variables['L'];            # Rod length
+    t = variables['t'];            # Time
+    alpha = variables['alpha'];    # Coefficient of thermal conductivity
 
-     Nx = variables['Nx'];          # Number of spatial nodes
-     Nt = variables['Nt'];          # Number of temporary nodes
+    Nx = variables['Nx'];          # Number of spatial nodes
+    Nt = variables['Nt'];          # Number of temporary nodes
 
     T_fixed_0 = variables['T_fixed_0'];
     T_fixed_1 = variables['T_fixed_1'];

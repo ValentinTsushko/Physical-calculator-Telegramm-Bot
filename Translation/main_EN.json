@@ -1,3 +1,3 @@
 {
-  "start_help_text": "Hello! I am your bot. I can do:\n\n/start - Start\n/help - Get help\n/System - System of linear equations\n/Quad - Quadratic equation\n/StringVibration - Mathematical-physical equation of string vibration\n/RodHeating - Mathematical-physical equation of heating the rod\n/Change_Language_EN - English\n/Change_Language_DE - Deutsch\n/Change_Language_UA - Українська\n/Change_Language_RU - Русский"
+  "start_help_text": "Hello! I am your bot. I can do:\n\n/start - Start\n/help - Get help\n/System - System of linear equations\n/Quad - Quadratic equation\n/StringVibration - Mathematical-physical equation of string vibration\n/RodHeating - Mathematical-physical equation of heating the rod\n/CVMaker - automatical CV maker\n/Change_Language_EN - English\n/Change_Language_DE - Deutsch\n/Change_Language_UA - Українська\n/Change_Language_RU - Русский"
 }
